@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>애니메이션 영화</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+    <style>
+        * {font-family: 'Bagel Fat One', cursive;}
+        table {margin: 0 auto;}
+        #poster img { width: 204px; height: 298px; border-radius: 50px; border: solid 5px;} td {text-align: center;}
+        #photos img { width: 300px; height: 150px;}
+        #third img {width: 600px; height: 300px;}
+    </style>
+</head>
+<body>
+    <table id="first">
+        <tr><td colspan="5" align="center" style="font-size: 25pt;">무작위 영화</td></tr>
+        <tr id="poster">
+            <td><img id="귀칼"><br>귀멸의 칼날</td>
+            <td><img id="이름"><br>너의 이름은</td>
+            <td><img id="모노노케"><br>원령공주</td>
+            <td><img id="모아나"><br>모아나</td>
+            <td><img id="슈퍼마리오"><br>슈퍼마리오</td>
+        </tr>
+    </table>
+    <table id="second">
+        <tr id="photos">
+            <td><img></td>
+            <td><img></td>
+            <td><img></td>
+        </tr>
+    </table>
+    <table id="third">
+        <tr>
+            <td><button id="before">이전</button></td>
+            <td><img id="current_photo"></td>
+            <td><button id="after">다음</button></td>
+        </tr>
+    </table>
+
+    <script>
+        let top_current = 0
+        const imgn = ['귀멸의 칼날','너의 이름은','모노노케 히메','모아나','슈퍼마리오']
+        const photons=[['귀칼1', '귀칼2', '귀칼3'],  
+                       ['나마에와1', '나마에와2', '나마에와3'],
+                       ['모노노케1', '모노노케2', '모노노케3'],
+                       ['모아나1', '모아나2', '모아나3'],
+                       ['슈퍼마리오1', '슈퍼마리오2', '슈퍼마리오3']]
+
+        const imgs = document.querySelectorAll('#poster img');
+        const photos = document.querySelectorAll('#photos img');
+
+        for (let i = 0; i < imgs.length; i++){
+            imgs[i].src = '포스터사진/' + imgn[i] + '.jpg'
+            imgs[i].id = i
+            imgs[i].onclick = function(event){
+                photos[current].style.border = 'solid 0px black'
+                current = 0
+                current_photo.src = '';
+                
+
+                const img = event.target;
+                img.style.border = 'solid 5px red'
+                imgs[top_current].style.border = 'solid 5px black'
+                
+                // if (img.id == 0){
+                //     const photon = ['귀칼1', '귀칼2', '귀칼3']
+                // }
+                // else if (img.id == 1){
+                //     const photon = ['나마에와1', '나마에와2', '나마에와3']
+                // }
+                // else if (img.id == 2){
+                //     const photon = ['모노노케1', '모노노케2', '모노노케3']
+                // }
+                // else if (img.id == 3){
+                //     const photon = ['모아나1', '모아나2', '모아나3']
+                // }
+                // else if (img.id == 4){
+                //     const photon = ['슈퍼마리오1', '슈퍼마리오2', '슈퍼마리오3']
+                // }
+                const photon = photons[img.id]
+                top_current = img.id
+                for (let j = 0; j < photos.length; j++){
+                        photos[j].src = '영화사진/' + photon[j] + ".jpg"
+                        photos[j].id = j
+                        photos[j].onclick = function (event){
+                            const photo = event.target;
+                            // photos.style.border = 'solid 5px black'
+                            photo.style.border = 'solid 5px red'
+                            photos[current].style.border = 'solid 0px black'
+                            current_photo.src = photo.src
+                            current = parseInt(photo.id)
+                        }
+                    }
+                }
+        }
+    
+        function changeImage(idx){
+            photos[idx].style.border = 'solid 5px red'
+            photos[current].style.border = 'solid 0px black'
+            current_photo.src = '영화사진/' + photons[top_current][idx] + '.jpg'
+            current = idx; 
+        }
+
+        let current = 0
+        let current_photo = document.querySelector('#current_photo')
+        //current_photo.src = '영화사진/' + photons[0][current] + '.jpg'
+        const photos2 = document.querySelectorAll('#photos img')
+
+
+        const before = document.querySelector('#before')
+        before.onclick = function(event){
+            let prev = current - 1
+            if (prev < 0){
+                prev = photos2.length -1;
+            }
+            photos[prev].style.border = 'solid 5px red'
+            photos[current].style.border = 'solid 0px black'
+            current_photo.src = '영화사진/' + photons[top_current][prev] + '.jpg'
+            current = prev
+            }
+
+        const after = document.querySelector('#after')
+        after.onclick = function(event){
+            let next = current + 1
+            if (next > photos2.length -1){
+                next = 0;
+            }
+            photos[next].style.border = 'solid 5px red'
+            photos[current].style.border = 'solid 0px black'
+            current_photo.src = '영화사진/' + photons[top_current][next] + '.jpg'
+            current = next
+        }
+    </script>
+    
+</body>
+</html>

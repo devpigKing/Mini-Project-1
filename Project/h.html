@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Nanum Pen Script', cursive;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        
+        .nav {
+            text-align: left;
+
+        }
+
+        #list_row img {
+            border-radius: 10px;
+            height: 200px;
+            box-shadow: 3px 3px 3px 3px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        #topName {
+            text-align: left;
+            
+        }
+
+        #display_row img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        button {
+            border-radius: 10px;
+            background-color: antiquewhite;
+        }
+
+        .bg-video1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 1;
+            object-fit: cover;
+            margin: 0 auto;
+
+        }
+
+        footer {
+            background-color: black;
+            height: 150px;
+            text-align: right;
+        }
+
+        .mo-text{
+            display: none;
+        }
+
+        .mo-title:hover + .mo-text {
+            display: block;
+        }
+
+        .mo-text2{
+            display: none;
+        }
+
+        .mo-title2:hover + .mo-text2 {
+            display: block;
+        }
+
+        .mo-text3{
+            display: none;
+        }
+
+        .mo-title3:hover + .mo-text3 {
+            display: block;
+        }
+
+        .mo-text4{
+            display: none;
+        }
+
+        .mo-title4:hover + .mo-text4 {
+            display: block;
+        }
+        .mo-text5{
+            display: none;
+        }
+
+        .mo-title5:hover + .mo-text5 {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1><a href="#">윤다훈님의 추천 영화</a></h1>
+    <hr>
+    <div class="nav">
+        <a href="i.html"><h3>메인화면 바로가기</h3></a>
+    </div>
+    <hr>
+    <div>
+        <video class="bg-video1" autoplay muted loop>
+            <source src="video/video2.mp4" />
+        </video>    
+        <table align="center">
+            <tr>
+                <td colspan="5" id="topName"><h2>애니메이션</h2></td>
+            </tr>
+            <tr id="list_row">
+                <td><a href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=68&os=29700020&qvt=0&query=%ED%8C%8C%EC%9D%B4%EC%96%B4%ED%95%98%ED%8A%B8"><img id="img0">
+                    <p class="mo-title">파이어하트</p>
+                    <div class="mo-text">
+                        애니메이션<br>
+                        프랑스 : 92분<br>
+                        평점 : 9.23<br>
+                        개봉<br>
+                        => 2023.06.28.
+                    </div></a></td>
+                <td><a href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=68&os=29700020&qvt=0&query=%ED%8C%8C%EC%9D%B4%EC%96%B4%ED%95%98%ED%8A%B8"><img id="img1">
+                    <p class="mo-title2">명탐정 코난</p>
+                    <div class="mo-text2">
+                        애니메이션<br>
+                        일본 89분<br>
+                        평점 7.79<br>
+                        개봉<br>
+                        => 2023.06.23.
+                    </div>
+                </a></td>
+                <td><a href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=68&os=29700020&qvt=0&query=%ED%8C%8C%EC%9D%B4%EC%96%B4%ED%95%98%ED%8A%B8"><img id="img2">
+                    <p class="mo-title3">스파이더맨</p>
+                    <div class="mo-text3">
+                        애니메이션<br>
+                        미국 : 140분<br>
+                        평점 : 8.81<br>
+                        개봉<br>
+                        => 2023.06.21.
+                    </div></a></td>
+                <td><a href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=68&os=29700020&qvt=0&query=%ED%8C%8C%EC%9D%B4%EC%96%B4%ED%95%98%ED%8A%B8"><img id="img3">
+                    <p class="mo-title3">엘리멘탈</p>
+                    <div class="mo-text3">
+                        개요<br>
+                        애니메이션<br>
+                        미국 : 109분<br>
+                        평점 : 8.93<br>
+                        개봉<br>
+                        => 2023.06.14.
+                    </div></a></td>
+                <td><a href="https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&pkid=68&os=29700020&qvt=0&query=%ED%8C%8C%EC%9D%B4%EC%96%B4%ED%95%98%ED%8A%B8"><img id="img4">
+                    <p class="mo-title3">그 여름</p>
+                    <div class="mo-text3">
+                        개요<br>
+                        애니메이션<br>
+                        대한민국 : 61분<br>
+                        평점 : 6.89<br>
+                        개봉<br>
+                        => 2023.06.07.
+                    </div></a></td>                
+            </tr>
+            <tr id="display_row">
+                <td><button id="btnPre" style="color: black;">이전</button></td>
+                <td colspan="3"><img id="current_img"></td>
+                <td><button id="btnNext" style="color: black;">다음</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <footer> 
+        <p style="color: white;">
+            <span>회사명 : 애듀인에듀</span>
+            <br>
+            <span>위치 : 서울 특별시 구로구</span>
+            <br>
+            <span>전화번호 : 010-1111-1111</span>
+        </p>
+    </footer>
+
+    <script>
+        const image_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        const imgs = document.querySelectorAll('#list_row img');
+        const current_img = document.querySelector("#current_img");
+        
+        
+
+        function slide(event) {
+            const img = event.target;
+            img.style.border = "solid 4px blue";
+            current_img.src = img.src;
+            imgs[current_idx].style.border = "solid 2px white";
+            current_idx = parseInt(img.id);
+        }
+
+        function changeImage(new_idx) {
+            imgs[new_idx].style.border = "solid 4px blue";
+            imgs[current_idx].style.border = "solid 2px white";
+            current_img.src = "image/" + image_name[new_idx] + ".jpg";
+            current_idx = new_idx;
+        }   
+
+
+        for(let i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = slide;
+            imgs[i].src = 'image/' + image_name[i] + '.jpg';
+            imgs[i].addEventListener('mouseover', (event) => {
+
+            })
+        }
+
+        //////////////////////////////////
+
+        
+        let current_idx = 0;
+        current_img.src = "image/" + image_name[current_idx] + ".jpg";
+        imgs[current_idx].style.border = "solid 2px blue";
+
+        const btnPre = document.querySelector("#btnPre");
+        btnPre.onclick = function(event) {
+            let pre_idx = current_idx - 1;
+            if(pre_idx < 0) {
+                pre_idx = imgs.length - 1;
+            }
+
+            changeImage(pre_idx);
+        }
+
+        const btnNext = document.querySelector("#btnNext");
+        btnNext.onclick = function(event) {
+            let next_idx = current_idx + 1;
+            if(next_idx > imgs.length - 1) {
+                next_idx = 0;
+            }
+
+            changeImage(next_idx);
+        }
+
+    </script>
+    
+</body>
+</html>
